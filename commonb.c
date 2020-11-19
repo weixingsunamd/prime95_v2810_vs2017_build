@@ -3194,12 +3194,12 @@ int primeContinue (
 	int	stop_reason;
 
 /* Set the process/thread priority */
-
+/*
 	sp_info.type = SET_PRIORITY_NORMAL_WORK;
 	sp_info.thread_num = thread_num;
 	sp_info.aux_thread_num = 0;
 	SetPriority (&sp_info);
-
+*/
 /* Loop until the ESC key is hit or the entire work-to-do INI file */
 /* is processed and we are not connected to the server. */
 
@@ -7692,8 +7692,10 @@ loop:	run_indefinitely = TRUE;
 	time (&start_time);
 	for ( ; ; ) {
 	    for (i = 0; i < num_lengths; i++) {
-		stop_reason =
-			selfTestInternal (thread_num, &sp_info, lengths[i], test_time, &data_index[i],
+		//stop_reason = selfTestInternal (thread_num, &sp_info, lengths[i], test_time, &data_index[i],
+		//			  memory, bigbuf, test_data, test_data_count, &tests_completed,
+		//			  &self_test_errors, &self_test_warnings);
+		stop_reason = selfTestInternal (thread_num, NULL, lengths[i], test_time, &data_index[i],
 					  memory, bigbuf, test_data, test_data_count, &tests_completed,
 					  &self_test_errors, &self_test_warnings);
 		if (stop_reason) {
